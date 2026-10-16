@@ -13,3 +13,4 @@ INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 1);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 2);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 3);
 
+INSERT INTO tb_course (name, img_uri, img_gray_uri) VALUES ('JAVA Completo', 'https://cdn.shopaccino.com/igmguru/products/java-training-igmguru188702274l-80792456690491_m.webp?v=548', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReSTZICWY_20MxWxIfbmx-lt2Ge_tMM5oAF9t0jNkQxR2H2hhysZtV4gr6&s=10');
