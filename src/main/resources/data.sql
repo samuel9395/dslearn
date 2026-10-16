@@ -17,3 +17,13 @@ INSERT INTO tb_course (name, img_uri, img_gray_uri) VALUES ('Java Spring - Compl
 
 INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('1.0', TIMESTAMP WITH TIME ZONE '2023-09-16T19:00:00Z', TIMESTAMP WITH TIME ZONE  '2023-10-15T19:00:00Z', 1);
 INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('2.0', TIMESTAMP WITH TIME ZONE '2023-08-15T19:00:00Z', TIMESTAMP WITH TIME ZONE  '2023-09-15T19:00:00Z', 1);
+
+INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Nova versão do curso Java Spring', TIMESTAMP WITH TIME ZONE '2023-09-16T19:00:00Z', false, '/courses/1', 1);
+
+INSERT INTO tb_resource (title, description, position, img_uri, type, offer_id) VALUES ('Trilha HTML', 'Trilha principal do curso', 1, 'https://www.cursoemvideo.com/wp-content/uploads/bb-plugin/cache/html5-circle-f2daa60cb7da17f243bf34a11bfa5930-5d48cb37edbef.jpg', 1, 1);
+INSERT INTO tb_resource (title, description, position, img_uri, type, offer_id) VALUES ('Fórum', 'Tire suas dúvidas', 2, 'https://www.cursoemvideo.com/wp-content/uploads/bb-plugin/cache/html5-circle-f2daa60cb7da17f243bf34a11bfa5930-5d48cb37edbef.jpg', 2, 1);
+INSERT INTO tb_resource (title, description, position, img_uri, type, offer_id) VALUES ('Lives', 'Lives exclusicas para a turma', 3, 'https://www.cursoemvideo.com/wp-content/uploads/bb-plugin/cache/html5-circle-f2daa60cb7da17f243bf34a11bfa5930-5d48cb37edbef.jpg', 0, 1);
+
+INSERT INTO tb_section (title, description, position, img_uri, resource_id, prerequisite_id) VALUES ('Capítulo 1', 'Introdução ao HTML', 1, 'https://www.cursoemvideo.com/wp-content/uploads/bb-plugin/cache/html5-circle-f2daa60cb7da17f243bf34a11bfa5930-5d48cb37edbef.jpg', 1, null);
+INSERT INTO tb_section (title, description, position, img_uri, resource_id, prerequisite_id) VALUES ('Capítulo 2', 'Esqueleto da página HTML', 1, 'https://www.cursoemvideo.com/wp-content/uploads/bb-plugin/cache/html5-circle-f2daa60cb7da17f243bf34a11bfa5930-5d48cb37edbef.jpg', 2, 1);
+INSERT INTO tb_section (title, description, position, img_uri, resource_id, prerequisite_id) VALUES ('Capítulo 3', 'Primeira página HTML', 1, 'https://www.cursoemvideo.com/wp-content/uploads/bb-plugin/cache/html5-circle-f2daa60cb7da17f243bf34a11bfa5930-5d48cb37edbef.jpg', 3, 2);
