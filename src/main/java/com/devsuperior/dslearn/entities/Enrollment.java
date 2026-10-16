@@ -19,10 +19,10 @@ public class Enrollment {
     @EmbeddedId // tem classe auxiliar com o '@Embeddable'
     private EnrollmentPK id = new EnrollmentPK();
 
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(name = "enroll_moment",columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant enrollMoment;
 
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(name = "refund_moment",columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant refundMoment;
 
     private boolean available;
