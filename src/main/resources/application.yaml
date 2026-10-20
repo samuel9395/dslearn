@@ -5,8 +5,8 @@ spring:
   profiles:
     active: ${APP_PROFILE:test}
 
-    jpa:
-      open-in-view: false
+  jpa:
+    open-in-view: false
 
 # Spring Security
 security:

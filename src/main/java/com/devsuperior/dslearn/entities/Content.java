@@ -1,5 +1,6 @@
 package com.devsuperior.dslearn.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
@@ -12,7 +13,10 @@ public class Content extends Lesson{
     @Serial
     private static final long serialVersionUID = 1L;
 
+    @Column(name = "text_content")
     private String textContent;
+
+    @Column(name = "video_uri")
     private String videoUri;
 
     public Content() {
