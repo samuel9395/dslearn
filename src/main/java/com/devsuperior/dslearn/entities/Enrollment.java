@@ -1,12 +1,11 @@
 package com.devsuperior.dslearn.entities;
 
 import com.devsuperior.dslearn.entities.pk.EnrollmentPK;
-import jakarta.persistence.Column;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_enrollment")
@@ -27,7 +26,14 @@ public class Enrollment {
 
     private boolean available;
 
+    @Column(name = "only_update")
     private boolean onlyUpdate;
+
+    @ManyToMany(mappedBy = "enrollmentsDone")
+    private Set<Lesson> lessonsDone = new HashSet<>();
+
+    @OneToMany(mappedBy = "enrollment")
+    private Set<Deliver> delivers = new HashSet<>();
 
     public Enrollment() {
     }
@@ -87,5 +93,17 @@ public class Enrollment {
 
     public void setOnlyUpdate(boolean onlyUpdate) {
         this.onlyUpdate = onlyUpdate;
+    }
+
+    public Instant getEnrollMoment() {
+        return enrollMoment;
+    }
+
+    public Set<Lesson> getLessonsDone() {
+        return lessonsDone;
+    }
+
+    public Set<Deliver> getDelivers() {
+        return delivers;
     }
 }

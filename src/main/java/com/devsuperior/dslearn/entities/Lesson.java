@@ -4,9 +4,7 @@ import jakarta.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Ao mapear herança para um banco relacional, é preciso escolher a estratégia:
@@ -42,6 +40,9 @@ public abstract class Lesson implements Serializable {
                     @JoinColumn(name = "offer_id")
             })
     private Set<Enrollment> enrollmentsDone = new HashSet<>();
+
+    @OneToMany(mappedBy = "lesson")
+    private Set<Deliver> deliveries = new HashSet<>();
 
     public Lesson() {
     }
@@ -87,6 +88,10 @@ public abstract class Lesson implements Serializable {
 
     public Set<Enrollment> getEnrollmentsDone() {
         return enrollmentsDone;
+    }
+
+    public Set<Deliver> getDeliveries() {
+        return deliveries;
     }
 
     @Override

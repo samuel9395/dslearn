@@ -1,9 +1,8 @@
 package com.devsuperior.dslearn.enums;
 
-public enum ResourceType {
+public enum DeliverStatus {
 
-    LESSON_ONLY,
-    LESSON_TASK,
-    FORUM,
-    EXTERNAL_LINK
+    PENDING,
+    ACCEPTED,
+    REJECTED
 }
