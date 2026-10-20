@@ -15,15 +15,11 @@ import java.util.*;
 @Inheritance(strategy = InheritanceType.JOINED)
 @Entity
 @Table(name = "tb_lesson")
-public abstract class Lesson implements Serializable {
-
-    @Serial
-    private static final long serialVersionUID = 1L;
+public abstract class Lesson {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String title;
     private Integer position;
 
@@ -42,7 +38,7 @@ public abstract class Lesson implements Serializable {
     private Set<Enrollment> enrollmentsDone = new HashSet<>();
 
     @OneToMany(mappedBy = "lesson")
-    private Set<Deliver> deliveries = new HashSet<>();
+    private List<Deliver> deliveries = new ArrayList<>();
 
     public Lesson() {
     }
@@ -90,7 +86,7 @@ public abstract class Lesson implements Serializable {
         return enrollmentsDone;
     }
 
-    public Set<Deliver> getDeliveries() {
+    public List<Deliver> getDeliveries() {
         return deliveries;
     }
 

@@ -4,8 +4,7 @@ import com.devsuperior.dslearn.entities.pk.EnrollmentPK;
 import jakarta.persistence.*;
 
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_enrollment")
@@ -18,10 +17,10 @@ public class Enrollment {
     @EmbeddedId // tem classe auxiliar com o '@Embeddable'
     private EnrollmentPK id = new EnrollmentPK();
 
-    @Column(name = "enroll_moment",columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(name = "enroll_moment", columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant enrollMoment;
 
-    @Column(name = "refund_moment",columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(name = "refund_moment", columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant refundMoment;
 
     private boolean available;
@@ -33,12 +32,13 @@ public class Enrollment {
     private Set<Lesson> lessonsDone = new HashSet<>();
 
     @OneToMany(mappedBy = "enrollment")
-    private Set<Deliver> delivers = new HashSet<>();
+    private List<Deliver> deliveries = new ArrayList<>();
 
     public Enrollment() {
     }
 
-    public Enrollment(User user, Offer offer, Instant enrollMoment, Instant refundMoment, boolean available, boolean onlyUpdate) {
+    public Enrollment(User user, Offer offer, Instant enrollMoment, Instant refundMoment, boolean available,
+                      boolean onlyUpdate) {
         id.setUser(user);
         id.setOffer(offer);
         this.enrollMoment = enrollMoment;
@@ -103,7 +103,24 @@ public class Enrollment {
         return lessonsDone;
     }
 
-    public Set<Deliver> getDelivers() {
-        return delivers;
+    public List<Deliver> getDeliveries() {
+        return deliveries;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Enrollment other = (Enrollment) obj;
+        return Objects.equals(id, other.id);
     }
 }

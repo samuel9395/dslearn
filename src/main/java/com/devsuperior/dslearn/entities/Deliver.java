@@ -3,17 +3,12 @@ package com.devsuperior.dslearn.entities;
 import com.devsuperior.dslearn.enums.DeliverStatus;
 import jakarta.persistence.*;
 
-import java.io.Serial;
-import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
 @Entity
 @Table(name = "tb_deliver")
-public class Deliver implements Serializable {
-
-    @Serial
-    private static final long serialVersionUID = 1L;
+public class Deliver {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,9 +37,11 @@ public class Deliver implements Serializable {
     @JoinColumn(name = "lesson_id")
     private Lesson lesson;
 
-    public Deliver() {}
+    public Deliver() {
+    }
 
-    public Deliver(Long id, String uri, Instant moment, DeliverStatus status, String feedback, Integer correctCount, Enrollment enrollment, Lesson lesson) {
+    public Deliver(Long id, String uri, Instant moment, DeliverStatus status, String feedback, Integer correctCount,
+                   Enrollment enrollment, Lesson lesson) {
         this.id = id;
         this.uri = uri;
         this.moment = moment;
